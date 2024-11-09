@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Card({title, image, price}){
+function Card({title, image, price, handleClick}){
     const [quantity, setQuantity] = useState(0);
 
     function increment(){
@@ -45,10 +45,9 @@ function Card({title, image, price}){
                     <button onClick={decrement}>Decrement</button>
                 </div>
                 <div className='cart_button'> 
-                    <button>Add to Cart</button>
+                    <button onClick = {()=>handleClick(quantity)}>Add to Cart</button>
                 </div>
             </div>
-            
         </div>
     </>)
 }

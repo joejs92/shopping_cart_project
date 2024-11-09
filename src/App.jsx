@@ -7,13 +7,19 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState(0);
+  
+  function updateCart(amount){
+    setCart(amount);
+  }
+
   return (
     <>
     <div className='nav'>
       <Navigate cartAmount = {cart}/>
     </div>
     <div className='main-body'>
-      <Outlet />
+      {/* handleClick below won't work */}
+      <Outlet handleClick = {updateCart}/>
     </div>
     </>
   )

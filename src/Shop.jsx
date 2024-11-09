@@ -10,12 +10,11 @@ function Shop(){
         .catch((error => console.error(error)));
     }, []);
   
-
   return (
     <>
       <div className='shopping'>
           {items.map((item)=>{
-            return <Card key = {item.id} image = {item.image} title = {item.title} price = {item.price}/>
+            return <Card key = {item.id} image = {item.image} title = {item.title} price = {item.price} />
           })}
       </div>
     </>
