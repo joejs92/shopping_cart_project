@@ -1,16 +1,18 @@
-function Navigate(){
+import { Link } from "react-router-dom";
+
+function Navigate({cartAmount}){
 
     return(
         <>
         <div className="nav-content">
-            <p>Home</p>
-            <p>Shop</p>
+            <Link to="home">Home</Link>
+            <Link to="shop">Shop</Link>
         </div>
         <div className="title">
             <h1>Cheap Crap Shopping Center</h1>
         </div>
         <div className="nav-content">
-            <p>Cart Items: </p>
+            <p>Cart Items: {cartAmount}</p>
             <button>Checkout</button>
         </div>
         </>
