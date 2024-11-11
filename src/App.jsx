@@ -7,10 +7,6 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState(0);
-  
-  function updateCart(amount){
-    setCart(amount);
-  }
 
   return (
     <>
@@ -19,7 +15,7 @@ function App() {
     </div>
     <div className='main-body'>
       {/* handleClick below won't work */}
-      <Outlet handleClick = {updateCart}/>
+      <Outlet context={[cart,setCart]}/>
     </div>
     </>
   )

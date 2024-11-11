@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useOutletContext } from "react-router-dom";
 
 function Card({title, image, price, handleClick}){
     const [quantity, setQuantity] = useState(0);
+    const [cart, setCart] = useOutletContext();
 
     function increment(){
         const numberedQuantity = quantity*1;
@@ -21,6 +23,19 @@ function Card({title, image, price, handleClick}){
             setQuantity(0);
         }
     }
+
+    function updateCart(amount){
+        if(isNaN(amount)){
+            window.alert("Not a valid quantity");
+        }
+        else{
+            setCart((cart)*1 + (amount)*1);
+        }
+      }
+      //works as is, but it interprets keyboard input
+      //as strings even if a number is typed in.
+      //Could use Regex to check if quantity entered is
+      //equal to a natural number.
 
     return (<>
         <div className="card">
@@ -45,7 +60,7 @@ function Card({title, image, price, handleClick}){
                     <button onClick={decrement}>Decrement</button>
                 </div>
                 <div className='cart_button'> 
-                    <button onClick = {()=>handleClick(quantity)}>Add to Cart</button>
+                    <button onClick = {()=>updateCart(quantity)}>Add to Cart</button>
                 </div>
             </div>
         </div>
